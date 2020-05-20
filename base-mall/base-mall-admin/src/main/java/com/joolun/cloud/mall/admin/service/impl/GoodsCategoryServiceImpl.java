@@ -17,6 +17,7 @@ import com.joolun.cloud.mall.common.entity.GoodsCategoryTree;
 import com.joolun.cloud.mall.admin.mapper.GoodsCategoryMapper;
 import com.joolun.cloud.mall.admin.service.GoodsCategoryService;
 import com.joolun.cloud.upms.common.util.TreeUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
@@ -33,9 +34,12 @@ import java.util.stream.Collectors;
 @Service
 public class GoodsCategoryServiceImpl extends ServiceImpl<GoodsCategoryMapper, GoodsCategory> implements GoodsCategoryService {
 
+	@Autowired
+	private GoodsCategoryMapper goodsCategoryMapper;
+
 	@Override
 	public List<GoodsCategoryTree> selectTree(GoodsCategory goodsCategory) {
-		return getTree(this.list(Wrappers.lambdaQuery(goodsCategory)));
+		return getTree(goodsCategoryMapper.selectCategory());
 	}
 
 	/**

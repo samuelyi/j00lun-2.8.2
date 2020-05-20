@@ -8,8 +8,11 @@
  */
 package com.joolun.cloud.mall.admin.mapper;
 
+import com.baomidou.mybatisplus.annotation.SqlParser;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.joolun.cloud.mall.common.entity.GoodsCategory;
+
+import java.util.List;
 
 /**
  * 商品类目
@@ -19,4 +22,10 @@ import com.joolun.cloud.mall.common.entity.GoodsCategory;
  */
 public interface GoodsCategoryMapper extends BaseMapper<GoodsCategory> {
 
+	/**
+	 * 商品分类查询
+	 * @return
+	 */
+	@SqlParser(filter = true)
+	List<GoodsCategory> selectCategory();
 }

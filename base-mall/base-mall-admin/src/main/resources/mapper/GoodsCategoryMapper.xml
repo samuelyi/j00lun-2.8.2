@@ -22,4 +22,8 @@
 	<result property="updateTime" column="update_time"/>
 	<result property="delFlag" column="del_flag"/>
   </resultMap>
+
+	<select id="selectCategory" resultType="com.joolun.cloud.mall.common.entity.GoodsCategory">
+		SELECT id, tenant_id, parent_id, name, description, pic_url, sort, create_time, update_time, del_flag FROM goods_category
+	</select>
 </mapper>
