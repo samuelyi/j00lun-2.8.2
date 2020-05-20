@@ -16,7 +16,6 @@ import org.springframework.context.annotation.Configuration;
 /**
  * 商城相关配置
  *
- *
  * @author
  */
 @Data
