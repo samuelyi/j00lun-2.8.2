@@ -8,6 +8,8 @@
  */
 package com.joolun.cloud.mall.admin.controller;
 
+import com.baomidou.mybatisplus.annotation.SqlParser;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.joolun.cloud.common.core.util.R;
@@ -47,7 +49,8 @@ public class MaterialController {
     @GetMapping("/page")
     @PreAuthorize("@ato.hasAuthority('mall:material:index')")
     public R getMaterialPage(Page page, Material material) {
-        return R.ok(materialService.page(page,materialService));
+		System.out.println(page);
+        return R.ok(materialService.select(page));
     }
 
     /**

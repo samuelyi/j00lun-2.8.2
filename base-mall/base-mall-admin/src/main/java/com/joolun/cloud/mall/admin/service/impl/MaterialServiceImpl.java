@@ -8,7 +8,8 @@
  */
 package com.joolun.cloud.mall.admin.service.impl;
 
-import cn.hutool.db.Page;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.joolun.cloud.mall.common.entity.Material;
 import com.joolun.cloud.mall.admin.mapper.MaterialMapper;
@@ -30,8 +31,9 @@ public class MaterialServiceImpl extends ServiceImpl<MaterialMapper, Material> i
 
 	@Autowired
 	private MaterialMapper materialMapper;
+
 	@Override
-	public List<Material> page(Material material) {
-		return materialMapper.selectMaterial(material);
+	public IPage<Material> select(Page<Material> page) {
+		return materialMapper.selectPageVo(page);
 	}
 }

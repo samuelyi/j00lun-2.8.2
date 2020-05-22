@@ -8,9 +8,10 @@
  */
 package com.joolun.cloud.mall.admin.mapper;
 
-import cn.hutool.db.Page;
 import com.baomidou.mybatisplus.annotation.SqlParser;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.joolun.cloud.mall.common.entity.Material;
 import com.joolun.cloud.mall.common.entity.MaterialGroup;
 
@@ -30,5 +31,5 @@ public interface MaterialMapper extends BaseMapper<Material> {
 	 * @return
 	 */
 	@SqlParser(filter = true)
-	List<Material> selectMaterial(Material material);
+	IPage<Material> selectPageVo(Page<Material> page);
 }
