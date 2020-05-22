@@ -18,6 +18,7 @@ import com.joolun.cloud.mall.admin.service.MaterialGroupService;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import net.bytebuddy.asm.Advice;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.security.access.prepost.PreAuthorize;
 import io.swagger.annotations.Api;
@@ -37,7 +38,7 @@ public class MaterialGroupController {
 
     private final MaterialGroupService materialGroupService;
 
-	/**
+    /**
     * 分页查询
     * @param page 分页对象
     * @param materialGroup 素材分组
@@ -47,7 +48,8 @@ public class MaterialGroupController {
     @GetMapping("/page")
     @PreAuthorize("@ato.hasAuthority('mall:material:index')")
     public R getMaterialGroupPage(Page page, MaterialGroup materialGroup) {
-        return R.ok(materialGroupService.page(page,Wrappers.query(materialGroup)));
+		//return R.ok(materialGroupService.page(page,Wrappers.query(materialGroup)));
+		return R.ok(materialGroupService.selectMaterialGroup(page));
     }
 
     /**

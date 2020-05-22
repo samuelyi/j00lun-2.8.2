@@ -14,6 +14,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.joolun.cloud.mall.common.entity.Material;
 import com.joolun.cloud.mall.common.entity.MaterialGroup;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -26,10 +27,20 @@ import java.util.List;
 public interface MaterialMapper extends BaseMapper<Material> {
 
 	/**
-	 * 	素材库查询
-	 * @param material
+	 * 素材库查询
+	 * @param page
 	 * @return
 	 */
 	@SqlParser(filter = true)
 	IPage<Material> selectPageVo(Page<Material> page);
+
+
+	/**
+	 * 根据分组ID查询素材库
+	 * @param page
+	 * @param groupId
+	 * @return
+	 */
+	@SqlParser(filter = true)
+	IPage<Material> selectPageByGroupIdVo(@Param("page") Page<Material> page, @Param("groupId") String groupId);
 }

@@ -8,14 +8,14 @@
  */
 package com.joolun.cloud.mall.admin.service.impl;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.joolun.cloud.mall.common.entity.MaterialGroup;
 import com.joolun.cloud.mall.admin.mapper.MaterialGroupMapper;
 import com.joolun.cloud.mall.admin.service.MaterialGroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  * 素材分组
@@ -28,13 +28,9 @@ public class MaterialGroupServiceImpl extends ServiceImpl<MaterialGroupMapper, M
 
 	@Autowired
 	private MaterialGroupMapper materialGroupMapper;
-	@Override
-	public List<MaterialGroup> selectMaterialGroup(MaterialGroup materialGroup) {
-		return materialGroupMapper.selectMaterialGroup(materialGroup);
-	}
 
 	@Override
-	public List<MaterialGroup> getById(String id) {
-		return materialGroupMapper.selectMaterialGroupById(id);
+	public IPage<MaterialGroup> selectMaterialGroup(Page<MaterialGroup> page) {
+		return materialGroupMapper.selectMaterialGroupVo(page);
 	}
 }

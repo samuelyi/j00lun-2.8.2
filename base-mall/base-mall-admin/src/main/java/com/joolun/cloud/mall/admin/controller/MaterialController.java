@@ -48,9 +48,12 @@ public class MaterialController {
 	@ApiOperation(value = "分页查询")
     @GetMapping("/page")
     @PreAuthorize("@ato.hasAuthority('mall:material:index')")
-    public R getMaterialPage(Page page, Material material) {
-		System.out.println(page);
-        return R.ok(materialService.select(page));
+    public R getMaterialPage(Page page, Material material,String groupId) {
+		if (groupId != null){
+			return R.ok(materialService.selectPageByGroupIdVo(page,groupId));
+		}else {
+			return R.ok(materialService.select(page));
+		}
     }
 
     /**
@@ -61,8 +64,8 @@ public class MaterialController {
 	@ApiOperation(value = "通过id查询素材")
     @GetMapping("/{id}")
     @PreAuthorize("@ato.hasAuthority('mall:material:get')")
-    public R getById(@PathVariable("id") String id){
-        return R.ok(materialService.getById(id));
+    public R getById(@PathVariable("id") String id,Page page, Material material){
+		return R.ok(materialService.getById(id));
     }
 
     /**
@@ -75,7 +78,6 @@ public class MaterialController {
     @PostMapping
     @PreAuthorize("@ato.hasAuthority('mall:material:add')")
     public R save(@RequestBody Material material){
-		//material.setCreateId(SecurityUtils.getUser().getId());
         return R.ok(materialService.save(material));
     }
 

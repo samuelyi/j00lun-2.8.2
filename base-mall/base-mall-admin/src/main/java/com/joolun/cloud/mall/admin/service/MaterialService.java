@@ -12,6 +12,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.joolun.cloud.mall.common.entity.Material;
+import com.joolun.cloud.mall.common.entity.MaterialGroup;
 
 import java.util.List;
 
@@ -23,5 +24,19 @@ import java.util.List;
  */
 public interface MaterialService extends IService<Material> {
 
+	/**
+	 * 	素材库查询
+	 * @param page
+	 * @return
+	 */
 	IPage<Material> select(Page<Material> page);
+
+
+	/**
+	 * 	根据分组ID查询素材库
+	 * @param page
+	 * @param groupId
+	 * @return
+	 */
+	IPage<Material> selectPageByGroupIdVo(Page<Material> page,String groupId);
 }

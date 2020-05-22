@@ -14,6 +14,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.joolun.cloud.mall.common.entity.Material;
 import com.joolun.cloud.mall.admin.mapper.MaterialMapper;
 import com.joolun.cloud.mall.admin.service.MaterialService;
+import com.joolun.cloud.mall.common.entity.MaterialGroup;
 import org.omg.CORBA.PRIVATE_MEMBER;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,4 +37,11 @@ public class MaterialServiceImpl extends ServiceImpl<MaterialMapper, Material> i
 	public IPage<Material> select(Page<Material> page) {
 		return materialMapper.selectPageVo(page);
 	}
+
+	@Override
+	public IPage<Material> selectPageByGroupIdVo(Page<Material> page, String groupId) {
+		return materialMapper.selectPageByGroupIdVo(page,groupId);
+	}
+
+
 }

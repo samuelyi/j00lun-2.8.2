@@ -8,10 +8,10 @@
  */
 package com.joolun.cloud.mall.admin.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.joolun.cloud.mall.common.entity.MaterialGroup;
-
-import java.util.List;
 
 /**
  * 素材分组
@@ -22,16 +22,9 @@ import java.util.List;
 public interface MaterialGroupService extends IService<MaterialGroup> {
 
 	/**
-	 * 	素材库分类查询
-	 * @param materialGroup
+	 * 分页查询素材组
+	 * @param page
 	 * @return
 	 */
-	List<MaterialGroup> selectMaterialGroup(MaterialGroup materialGroup);
-
-	/**
-	 * 	通过id查询素材分组
-	 * @param id
-	 * @return
-	 */
-	List<MaterialGroup> getById(String id);
+	IPage<MaterialGroup> selectMaterialGroup(Page<MaterialGroup> page);
 }

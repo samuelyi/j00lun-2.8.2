@@ -26,4 +26,8 @@
 	<select id="selectPageVo" resultType="com.joolun.cloud.mall.common.entity.Material">
 		SELECT id, tenant_id, del_flag, create_time, update_time, create_id, type, group_id, name, url FROM material
 	</select>
+
+	<select id="selectPageByGroupIdVo" resultType="com.joolun.cloud.mall.common.entity.Material">
+		SELECT id, tenant_id, del_flag, create_time, update_time, create_id, type, group_id, name, url FROM material where group_id=#{groupId}
+	</select>
 </mapper>
