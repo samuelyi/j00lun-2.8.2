@@ -47,7 +47,7 @@ public class MaterialController {
     @GetMapping("/page")
     @PreAuthorize("@ato.hasAuthority('mall:material:index')")
     public R getMaterialPage(Page page, Material material) {
-        return R.ok(materialService.page(page,Wrappers.query(material)));
+        return R.ok(materialService.page(page,materialService));
     }
 
     /**
@@ -72,7 +72,7 @@ public class MaterialController {
     @PostMapping
     @PreAuthorize("@ato.hasAuthority('mall:material:add')")
     public R save(@RequestBody Material material){
-		material.setCreateId(SecurityUtils.getUser().getId());
+		//material.setCreateId(SecurityUtils.getUser().getId());
         return R.ok(materialService.save(material));
     }
 

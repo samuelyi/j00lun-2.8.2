@@ -8,11 +8,16 @@
  */
 package com.joolun.cloud.mall.admin.service.impl;
 
+import cn.hutool.db.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.joolun.cloud.mall.common.entity.Material;
 import com.joolun.cloud.mall.admin.mapper.MaterialMapper;
 import com.joolun.cloud.mall.admin.service.MaterialService;
+import org.omg.CORBA.PRIVATE_MEMBER;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * 素材
@@ -23,4 +28,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class MaterialServiceImpl extends ServiceImpl<MaterialMapper, Material> implements MaterialService {
 
+	@Autowired
+	private MaterialMapper materialMapper;
+	@Override
+	public List<Material> page(Material material) {
+		return materialMapper.selectMaterial(material);
+	}
 }

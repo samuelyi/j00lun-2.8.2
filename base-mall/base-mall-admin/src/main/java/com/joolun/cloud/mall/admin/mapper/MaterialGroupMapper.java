@@ -8,8 +8,11 @@
  */
 package com.joolun.cloud.mall.admin.mapper;
 
+import com.baomidou.mybatisplus.annotation.SqlParser;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.joolun.cloud.mall.common.entity.MaterialGroup;
+
+import java.util.List;
 
 /**
  * 素材分组
@@ -19,4 +22,19 @@ import com.joolun.cloud.mall.common.entity.MaterialGroup;
  */
 public interface MaterialGroupMapper extends BaseMapper<MaterialGroup> {
 
+	/**
+	 * 查询素材库分类
+	 * @param materialGroup
+	 * @return
+	 */
+	@SqlParser(filter = true)
+	List<MaterialGroup> selectMaterialGroup(MaterialGroup materialGroup);
+
+	/**
+	 * 根据ID查询素材库分类
+	 * @param id
+	 * @return
+	 */
+	@SqlParser(filter = true)
+	List<MaterialGroup> selectMaterialGroupById(String id);
 }

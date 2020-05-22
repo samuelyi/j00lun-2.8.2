@@ -8,8 +8,13 @@
  */
 package com.joolun.cloud.mall.admin.mapper;
 
+import cn.hutool.db.Page;
+import com.baomidou.mybatisplus.annotation.SqlParser;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.joolun.cloud.mall.common.entity.Material;
+import com.joolun.cloud.mall.common.entity.MaterialGroup;
+
+import java.util.List;
 
 /**
  * 素材
@@ -19,4 +24,11 @@ import com.joolun.cloud.mall.common.entity.Material;
  */
 public interface MaterialMapper extends BaseMapper<Material> {
 
+	/**
+	 * 	素材库查询
+	 * @param material
+	 * @return
+	 */
+	@SqlParser(filter = true)
+	List<Material> selectMaterial(Material material);
 }

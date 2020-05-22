@@ -11,6 +11,8 @@ package com.joolun.cloud.mall.admin.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.joolun.cloud.mall.common.entity.MaterialGroup;
 
+import java.util.List;
+
 /**
  * 素材分组
  *
@@ -19,4 +21,17 @@ import com.joolun.cloud.mall.common.entity.MaterialGroup;
  */
 public interface MaterialGroupService extends IService<MaterialGroup> {
 
+	/**
+	 * 	素材库分类查询
+	 * @param materialGroup
+	 * @return
+	 */
+	List<MaterialGroup> selectMaterialGroup(MaterialGroup materialGroup);
+
+	/**
+	 * 	通过id查询素材分组
+	 * @param id
+	 * @return
+	 */
+	List<MaterialGroup> getById(String id);
 }

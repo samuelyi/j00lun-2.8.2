@@ -8,8 +8,11 @@
  */
 package com.joolun.cloud.mall.admin.service;
 
+import cn.hutool.db.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.joolun.cloud.mall.common.entity.Material;
+
+import java.util.List;
 
 /**
  * 素材
@@ -19,4 +22,10 @@ import com.joolun.cloud.mall.common.entity.Material;
  */
 public interface MaterialService extends IService<Material> {
 
+	/**
+	 * 	素材库查询
+	 * @param material
+	 * @return
+	 */
+	List<Material> page(Material material);
 }
