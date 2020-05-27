@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (C) 2018-2019
+  ~ All rights reserved, Designed By www.joolun.com
+  ~ 注意：
+  ~ 本软件为www.joolun.com开发研制，未经购买不得使用
+  ~ 购买后可获得全部源代码（禁止转卖、分享、上传到码云、github等开源平台）
+  ~ 一经发现盗用、分享等行为，将追究法律责任，后果自负
+  -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.joolun.cloud.upms.admin.mapper.InveriMapper">
+
+    <resultMap id="inveriMap" type="com.joolun.cloud.upms.common.entity.Inveri">
+        <id property="id" column="id"/>
+        <result property="applyTime" column="apply_time"/>
+        <result property="merchantType" column="merchant_type"/>
+        <result property="businesType" column="busines_type"/>
+        <result property="commission" column="commission"/>
+        <result property="shopType" column="shop_type"/>
+        <result property="brandBusiness" column="brand_business"/>
+        <result property="msg" column="msg"/>
+        <result property="parentId" column="parent_id"/>
+        <result property="updatetime" column="updatetime"/>
+        <result property="parentIdea" column="parent_idea"/>
+        <result property="parentState" column="parent_state"/>
+        <result property="adminIdea" column="admin_idea"/>
+        <result property="adminState" column="admin_state"/>
+    </resultMap>
+
+    <sql id="inveriSql">
+        inveri.`id`,        inveri.`apply_time`,        inveri.`merchant_type`,        inveri.`busines_type`,        inveri.`commission`,        inveri.`shop_type`,        inveri.`brand_business`,        inveri.`msg`,        inveri.`parent_id`,        inveri.`updatetime`,        inveri.`parent_idea`,        inveri.`parent_state`,        inveri.`admin_idea`,        inveri.`admin_state`    </sql>
+</mapper>

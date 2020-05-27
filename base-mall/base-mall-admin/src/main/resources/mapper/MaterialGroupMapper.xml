@@ -23,4 +23,23 @@
 	<select id="selectMaterialGroupVo" resultType="com.joolun.cloud.mall.common.entity.Material">
 		SELECT id, tenant_id, del_flag, create_time, update_time, create_id, name FROM material_group
 	</select>
+
+
+	<resultMap id="materialGroupMap1" type="com.joolun.cloud.mall.common.entity.MaterialGroup">
+		<id property="id" column="id"/>
+		<result property="tenantId" column="tenant_id"/>
+		<result property="userId" column="user_id"/>
+		<result property="delFlag" column="del_flag"/>
+		<result property="createTime" column="create_time"/>
+		<result property="updateTime" column="update_time"/>
+		<result property="createId" column="create_id"/>
+		<result property="name" column="name"/>
+	</resultMap>
+	<sql id="materialGroupSql">
+        material_group.`id`,material_group.`tenant_id`,
+        material_group.`user_id`,material_group.`del_flag`,
+        material_group.`create_time`,material_group.`update_time`,
+        material_group.`create_id`,material_group.`name`
+	</sql>
+
 </mapper>

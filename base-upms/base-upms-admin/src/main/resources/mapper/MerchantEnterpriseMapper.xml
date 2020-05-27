@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (C) 2018-2019
+  ~ All rights reserved, Designed By www.joolun.com
+  ~ 注意：
+  ~ 本软件为www.joolun.com开发研制，未经购买不得使用
+  ~ 购买后可获得全部源代码（禁止转卖、分享、上传到码云、github等开源平台）
+  ~ 一经发现盗用、分享等行为，将追究法律责任，后果自负
+  -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.joolun.cloud.upms.admin.mapper.MerchantEnterpriseMapper">
+
+    <resultMap id="merchantEnterpriseMap" type="com.joolun.cloud.upms.common.entity.MerchantEnterprise">
+        <id property="id" column="id"/>
+        <result property="enterpriseName" column="enterprise_name"/>
+        <result property="enterpriseUsername" column="enterprise_username"/>
+        <result property="businesslicenseId" column="businesslicense_id"/>
+        <result property="businesslicenseStarttime" column="businesslicense_starttime"/>
+        <result property="businesslicenseEndtime" column="businesslicense_endtime"/>
+        <result property="enterpriseIdcard" column="enterprise_idcard"/>
+        <result property="enterpriseIdcardName" column="enterprise_idcard_name"/>
+        <result property="enterpriseIdcardFront" column="enterprise_idcard_front"/>
+        <result property="enterpriseIdcardReverse" column="enterprise_idcard_reverse"/>
+        <result property="mobileno" column="mobileno"/>
+        <result property="lfoa" column="lfoa"/>
+        <result property="address" column="address"/>
+        <result property="bankname" column="bankname"/>
+        <result property="bankaccountno" column="bankaccountNo"/>
+        <result property="bankaddress" column="bankaddress"/>
+        <result property="createtime" column="createtime"/>
+        <result property="updatetime" column="updatetime"/>
+    </resultMap>
+
+    <sql id="merchantEnterpriseSql">
+        merchant_enterprise.`id`,        merchant_enterprise.`enterprise_name`,        merchant_enterprise.`enterprise_username`,        merchant_enterprise.`businesslicense_id`,        merchant_enterprise.`businesslicense_starttime`,        merchant_enterprise.`businesslicense_endtime`,        merchant_enterprise.`enterprise_idcard`,        merchant_enterprise.`enterprise_idcard_name`,        merchant_enterprise.`enterprise_idcard_front`,        merchant_enterprise.`enterprise_idcard_reverse`,        merchant_enterprise.`mobileno`,        merchant_enterprise.`lfoa`,        merchant_enterprise.`address`,        merchant_enterprise.`bankname`,        merchant_enterprise.`bankaccountNo`,        merchant_enterprise.`bankaddress`,        merchant_enterprise.`createtime`,        merchant_enterprise.`updatetime`    </sql>
+</mapper>

@@ -198,4 +198,13 @@
 		ORDER BY sys_user.create_time DESC
 	</select>
 
+	<select id="getSon" resultType="com.joolun.cloud.upms.common.entity.SysUser">
+		select
+		id
+		from
+		sys_user
+		where
+		tenant_id = ${id} and parent_id != 0 and parent_id != 1
+	</select>
+
 </mapper>

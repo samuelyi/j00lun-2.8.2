@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (C) 2018-2019
+  ~ All rights reserved, Designed By www.joolun.com
+  ~ 注意：
+  ~ 本软件为www.joolun.com开发研制，未经购买不得使用
+  ~ 购买后可获得全部源代码（禁止转卖、分享、上传到码云、github等开源平台）
+  ~ 一经发现盗用、分享等行为，将追究法律责任，后果自负
+  -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.joolun.cloud.upms.admin.mapper.MerchantPersonageMapper">
+
+    <resultMap id="merchantPersonageMap" type="com.joolun.cloud.upms.common.entity.MerchantPersonage">
+        <id property="id" column="id"/>
+        <result property="personageName" column="personage_name"/>
+        <result property="personageUsername" column="personage_username"/>
+        <result property="personageIdcard" column="personage_idcard"/>
+        <result property="personageIdcardFront" column="personage_idcard_front"/>
+        <result property="personageIdcardReverse" column="personage_idcard_reverse"/>
+        <result property="address" column="address"/>
+        <result property="mobileno" column="mobileno"/>
+        <result property="bankname" column="bankname"/>
+        <result property="bankaccountno" column="bankaccountNo"/>
+        <result property="bankaddress" column="bankaddress"/>
+        <result property="bankImgFront" column="bank_img_front"/>
+        <result property="bankImgReverse" column="bank_img_reverse"/>
+        <result property="createtime" column="createtime"/>
+        <result property="updatetime" column="updatetime"/>
+    </resultMap>
+
+    <sql id="merchantPersonageSql">
+        merchant_personage.`id`,        merchant_personage.`personage_name`,        merchant_personage.`personage_username`,        merchant_personage.`personage_idcard`,        merchant_personage.`personage_idcard_front`,        merchant_personage.`personage_idcard_reverse`,        merchant_personage.`address`,        merchant_personage.`mobileno`,        merchant_personage.`bankname`,        merchant_personage.`bankaccountNo`,        merchant_personage.`bankaddress`,        merchant_personage.`bank_img_front`,        merchant_personage.`bank_img_reverse`,        merchant_personage.`createtime`,        merchant_personage.`updatetime`    </sql>
+</mapper>

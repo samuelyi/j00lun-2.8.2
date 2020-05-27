@@ -21,6 +21,7 @@ import java.io.Serializable;
  * @author JL
  * @date 2019-12-28 18:07:51
  */
+
 public interface BargainInfoMapper extends BaseMapper<BargainInfo> {
 	BargainInfo selectById2(Serializable id);
 

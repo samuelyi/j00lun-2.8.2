@@ -43,4 +43,13 @@ public interface SysUserMapper extends BaseMapper<SysUser> {
 	 * @return userVo
 	 */
 	UserVO getUserVoById(String id);
+
+
+	/**
+	 * 通过用户id查询所属的商铺id
+	 * @param id
+	 * @return
+	 */
+	@SqlParser(filter = true)
+	List<SysUser> getSon(String id);
 }
