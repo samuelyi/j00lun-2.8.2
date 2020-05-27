@@ -7,8 +7,6 @@
  * 一经发现盗用、分享等行为，将追究法律责任，后果自负
  */
 package com.joolun.cloud.upms.admin.service.impl;
-
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 
 import com.joolun.cloud.common.core.util.R;
@@ -52,7 +50,7 @@ public class InveriServiceImpl extends ServiceImpl<InveriMapper, Inveri> impleme
 
 	/**
 	 * 添加个人或企业入驻审核资料
-	 * @param InveriVo 审核状态
+	 *  InveriVo 审核状态
 	 * @return R
 	 */
 	@Override
@@ -110,8 +108,6 @@ public class InveriServiceImpl extends ServiceImpl<InveriMapper, Inveri> impleme
 	 */
 	@Override
 	public R parentGetMsg(String id) {
-		//这里是通过sysUser 通过用户id 查询他们的parentId  获取到自己管辖下的入驻商户信息
-//		List<SysUser> list = sysUserMapper.selectList(new QueryWrapper<SysUser>().eq("tenant_id", id).ne("parent_id",0));
 		HashMap<String, Object> hashMap = new HashMap<>();
 		ArrayList<Object> inverList = new ArrayList<>();
 		ArrayList<Object> enterList = new ArrayList<>();
@@ -127,7 +123,6 @@ public class InveriServiceImpl extends ServiceImpl<InveriMapper, Inveri> impleme
 		hashMap.put("inver",inverList);
 		hashMap.put("enter",enterList);
 		hashMap.put("person",personList);
-		//获取入驻的商户信息在 入驻审核表中
 		return R.ok(hashMap);
 	}
 
@@ -138,18 +133,6 @@ public class InveriServiceImpl extends ServiceImpl<InveriMapper, Inveri> impleme
 	 */
 	@Override
 	public R parentCheck(Inveri inveri) {
-		//从前台获取 代理商的审核信息 并通过被审核商户的id进行信息更新
-		//如果 管理员已审核则 代理商不能再修改审核内容
-//		List<Inveri> list = inveriMapper.selectList(new QueryWrapper<Inveri>().eq("admin_state", "0"));
-//		for (Inveri inveri1 : list) {
-//
-//		}
-//		Inveri one = inveriService.getOne(new QueryWrapper<Inveri>().eq("admin_state", inveri.getInveriId()));
-//		Inveri byId = inveriMapper.selectById(inveri);
-//		Integer adminState = byId.getAdminState();
-//		if (adminState == 1){
-//			return  R.failed("管理员已审核通过");
-//		}
 		getTime(inveri);
 		return R.ok(inveriMapper.updateById(inveri));
 	}
@@ -161,13 +144,6 @@ public class InveriServiceImpl extends ServiceImpl<InveriMapper, Inveri> impleme
 	 */
 	@Override
 	public R adminCheck(Inveri inveri) {
-//		//先查询代理商是否审核通过
-//		Inveri byId = inveriMapper.selectById(inveriId);
-//		//如果代理商未审核或审核失败 管理员不能对该企业进行审核  1为审核通过
-//		if (byId.getParentState() != 1){
-//			return R.failed("代理商未审核或审核未通过");
-//		}
-//		inveriMapper.updateById(inveri);
 		getTime(inveri);
 		return R.ok(inveriMapper.updateById(inveri));
 	}

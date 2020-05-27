@@ -46,8 +46,6 @@ public class InveriController {
 
     private final InveriService inveriService;
 
-
-//    ----------------------------------------------
 	/**
 	 * 添加个人或企业入驻审核资料
 	 * @param inveri 审核状态
@@ -58,16 +56,6 @@ public class InveriController {
 	@PostMapping("/add")
 	@PreAuthorize("@ato.hasAuthority('admin:inveri:add')")
 	public R saveMsg(@RequestBody InveriVo inveri) {
-		//默认代理商审核状态为 0
-		//0个人入驻 1为企业入驻
-//		if (typeId == 0){
-//			//各自提供的入驻信息
-//			merchantPersonageService.save(merchantPersonage);
-//		}else {
-//			merchantEnterpriseService.save(merchantEnterprise);
-//		}
-//		//审核表添加的信息
-//		R.ok(inveriService.save(inveri))
 		return inveriService.saveMsg(inveri);
 	}
 
@@ -81,11 +69,6 @@ public class InveriController {
 	@GetMapping("/getMsg/{id}")
 	@PreAuthorize("@ato.hasAuthority('admin:inveri:getMsg')")
 	public R parentGetMsg(@PathVariable("id") String id) {
-		//这里是通过sysUser 通过用户id 查询他们的parentId  获取到自己管辖下的入驻商户信息
-//		List<SysUser> list = sysUserService.list(new QueryWrapper<SysUser>().eq("tenant_id", id).ne("parent_id",0));
-//		SysUser byId = sysUserService.getById(id);
-		//获取入驻的商户信息在 入驻审核表中
-//		return R.ok(inveriService.getById(byId.getId()));
 		return inveriService.parentGetMsg(id);
 	}
 
@@ -99,19 +82,6 @@ public class InveriController {
 	@PostMapping("/checkParent")
 	@PreAuthorize("@ato.hasAuthority('admin:inveri:checkParent')")
 	public R parentCheck(@RequestBody Inveri inveri) {
-		//从前台获取 代理商的审核信息 并通过被审核商户的id进行信息更新
-		//如果 管理员已审核则 代理商不能再修改审核内容
-//		List<Inveri> list = inveriService.list(new QueryWrapper<Inveri>().eq("admin_state", "0"));
-//		for (Inveri inveri1 : list) {
-//
-//		}
-////		Inveri one = inveriService.getOne(new QueryWrapper<Inveri>().eq("admin_state", inveri.getInveriId()));
-//		Inveri byId = inveriService.getById(inveri);
-//		Integer adminState = byId.getAdminState();
-//		if (adminState == 1){
-//			return  R.failed("管理员已审核通过");
-//		}
-//		return R.ok(inveriService.updateById(inveri));
 		return inveriService.parentCheck(inveri);
 	}
 
@@ -125,14 +95,6 @@ public class InveriController {
 	@PostMapping("/checkAdmin")
 	@PreAuthorize("@ato.hasAuthority('admin:inveri:checkAdmin')")
 	public R adminCheck(@RequestBody Inveri inveri) {
-		//先查询代理商是否审核通过
-//		Inveri byId = inveriService.getById(inveriId);
-		//如果代理商未审核或审核失败 管理员不能对该企业进行审核  1为审核通过
-//		if (byId.getParentState() != 1){
-//			return R.failed("代理商未审核或审核未通过");
-//		}
-//		inveriService.updateById(inveri);
-//		return R.ok(inveriService.getById(inveri));
 		return inveriService.adminCheck(inveri);
 	}
 
@@ -146,14 +108,6 @@ public class InveriController {
 	@GetMapping("/delete/{id}")
 	@PreAuthorize("@ato.hasAuthority('admin:inveri:delete')")
 	public R adminCheck(@PathVariable("id") String id) {
-		//先查询代理商是否审核通过
-//		Inveri byId = inveriService.getById(inveriId);
-		//如果代理商未审核或审核失败 管理员不能对该企业进行审核  1为审核通过
-//		if (byId.getParentState() != 1){
-//			return R.failed("代理商未审核或审核未通过");
-//		}
-//		inveriService.updateById(inveri);
-//		return R.ok(inveriService.getById(inveri));
 		return inveriService.removeMsg(id);
 	}
 }
